@@ -5,7 +5,8 @@ exports.mf = mf;
 exports.envname = 'TEMPLATES_APOLLO'; // ENV var that (if set) will override the template selection
 exports.themes = [
     'style-blue',
-    'style-red'
+    'style-red',
+    'style-truka-subera-at'
 ];
 
 exports.deployDir =

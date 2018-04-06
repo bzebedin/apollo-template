@@ -1,8 +1,8 @@
-/*
+/**
  * This program is part of the OpenCms Apollo Template.
  *
- * Copyright (c) Alkacon Software GmbH & Co. KG (http://www.alkacon.com)
- *
+ * Copyright (c) Alkacon Software GmbH & Co. KG (http://www.alkacon.com) 
+ * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
@@ -12,15 +12,23 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- *
+ * 
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var mf = module.filename.substring(0, module.filename.length - 'Gruntparts.js'.length);
-exports.mf = mf;
+/**********
+ * Theme file: sytle-truka-suber-at.scss
+ * 
+ * Apollo Template CSS - RED theme.
+ */
 
-exports.jsSrc = [
-    mf + 'js/jQuery_3_3_1.js',
-    // mf + 'js/jQuery-migrate_3_0_0.js'
-]
+// Main theme colors
+$main-theme: #b31b34; // dark red
+$main-theme-hover: #ff264a; // light red
+$main-theme-complementary: #144382; // dark blue
+
+$fa-font-path: '/meinpfad';
+
+// Import the other files
+@import 'imports';

@@ -5,3 +5,5 @@
 Gruntfile-local.js
 /build/
 /output/
+*.iml
+/.idea/

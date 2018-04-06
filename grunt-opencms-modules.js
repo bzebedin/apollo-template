@@ -544,12 +544,17 @@ exports.cssSrc = function () {
 }
 
 exports.resourcePath = function (target) {
-    return path.normalize(
+    console.log("exports.resourcePath");
+    var returnPath = path.normalize(
         path.relative(
             oc.deployDir + '/css/',
             oc.resourceDir
-        ) + '/' + target
-    )
+        ) + '/' + target );
+
+    console.log("returnPath")
+    returnPath = returnPath.replace(/\\/g,'/');
+    console.log(returnPath);
+    return returnPath;
 }
 
 exports.jsSrc = function () {
