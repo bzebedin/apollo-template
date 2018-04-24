@@ -1,0 +1,40 @@
+/**
+ * This program is part of the OpenCms Apollo Template.
+ *
+ * Copyright (c) Alkacon Software GmbH & Co. KG (http://www.alkacon.com) 
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**********
+ * Theme file: sytle-truka-suber-at.scss
+ * 
+ * Apollo Template CSS - RED theme.
+ */
+
+// AMP Basiscolors
+$blau-1: rgb(51,92,132);
+$blau-2: rgb(67,122,174);
+$blau-3: rgb(90,163,232);
+$blau-4: rgb(131,186,238);
+$blau-5: rgb(173,209,244);
+$blau-6: rgb(213,232,249);
+
+// Main theme colors
+$main-theme: #335C84; // blau-1
+$main-theme-hover: #437AAE; // blau-2
+$main-theme-complementary: #144382; // dark blue
+
+// Import the other files
+@import 'imports';

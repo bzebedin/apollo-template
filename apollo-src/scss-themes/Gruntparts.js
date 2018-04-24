@@ -6,7 +6,8 @@ exports.envname = 'TEMPLATES_APOLLO'; // ENV var that (if set) will override the
 exports.themes = [
     'style-blue',
     'style-red',
-    'style-truka-subera-at'
+    'style-truka-subera-at',
+    'style-amp'
 ];
 
 exports.deployDir =

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/apollo-template.iml" filepath="$PROJECT_DIR$/apollo-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_main.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_main.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.blog.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.blog.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.contact.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.contact.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.core.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.core.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.democontents.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.democontents.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.disqus.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.disqus.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.event.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.event.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.faq.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.faq.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.flexible.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.flexible.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.imagegallery.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.imagegallery.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.imgur.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.imgur.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.job.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.job.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.linksequence.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.linksequence.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.list.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.list.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.map.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.map.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.navigation.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.navigation.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.shariff.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.shariff.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.sitemap.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.sitemap.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.slider.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.slider.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.slidercomplex.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.slidercomplex.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.tabs.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.tabs.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.webform.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.template.webform.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.theme.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_org.opencms.apollo.theme.iml" group="apollo-template" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apollo-template_test.iml" filepath="$PROJECT_DIR$/.idea/modules/apollo-template_test.iml" group="apollo-template" />
+    </modules>
+  </component>
+</project>
