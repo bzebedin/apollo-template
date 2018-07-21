@@ -7,7 +7,8 @@ exports.themes = [
     'style-blue',
     'style-red',
     'style-truka-subera-at',
-    'style-amp'
+    'style-amp',
+    'style-ampevents'
 ];
 
 exports.deployDir =

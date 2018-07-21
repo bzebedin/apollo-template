@@ -23,22 +23,27 @@
  * Apollo Template CSS - RED theme.
  */
 
-// AMP Basiscolors
-$blau-1: rgb(51,92,132);
-$blau-2: rgb(67,122,174);
-$blau-3: rgb(90,163,232);
-$blau-4: rgb(131,186,238);
-$blau-5: rgb(173,209,244);
-$blau-6: rgb(213,232,249);
-
 // Main theme colors
-$main-theme: #335C84; // blau-1
-$main-theme-hover: #437AAE; // blau-2
+$main-theme: #b31b34; // dark red
+$main-theme-hover: #ff264a; // light red
 $main-theme-complementary: #144382; // dark blue
 
 // Import the other files
 @import 'imports';
 
-.area-head {
-  margin-bottom: 0;
+.sky-form .state-success input,
+.sky-form .state-success select,
+.sky-form .state-success select + i,
+.sky-form .state-success textarea,
+.sky-form .radio.state-success i,
+.sky-form .checkbox.state-success i,
+.sky-form .toggle.state-success i,
+.sky-form .toggle.state-success input:checked + i {
+  background: #00ff00;
+}
+
+.sky-form .radio input:checked + i,
+.sky-form .checkbox input:checked + i,
+.sky-form .toggle input:checked + i {
+  border-color: #888888;
 }
