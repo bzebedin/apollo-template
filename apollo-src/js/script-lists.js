@@ -37,6 +37,9 @@ var ApolloList = function(jQ) {
     // all auto loading lists as array for easy iteration
     this.m_autoLoadLists = [];
 
+    // multifilter
+    this.m_multiFilters = {};
+
 
     function facetFilter(id, triggerId, searchStateParameters) {
 
@@ -57,6 +60,58 @@ var ApolloList = function(jQ) {
         listFilter(filter.elementId, null, filter.id, searchStateParameters + filter.$textsearch.val());
     }
 
+    function multiFilter(id,triggerId,blockId,catValue,searchStateParameters) {
+
+        var filter = m_multiFilters[id];
+
+        if(!filter.filterData[blockId]) {
+            filter.filterData[blockId] = {};
+        }
+
+        if(!filter.filterData[blockId][triggerId]) {
+            filter.filterData[blockId][triggerId] = catValue;
+        } else {
+            delete filter.filterData[blockId][triggerId];
+        }
+
+        if(Object.keys(filter.filterData[blockId]).length == 0) {
+            delete filter.filterData[blockId];
+        }
+        if (DEBUG) console.info("multiFilter.filter:",filter);
+        listMultiFilter(filter.filterObject.elementId, triggerId, id, searchStateParameters);
+
+    }
+
+    function listMultiFilter(id, triggerId, filterId, searchStateParameters) {
+
+        if (DEBUG) console.info("listMultiFilter() called elementId=" + id);
+
+        // reset filters of not sorting
+        var filterGroup = m_archiveFilterGroups[id];
+        var multiFilter = m_multiFilters[filterId];
+
+        if ((triggerId != "SORT") && (typeof filterGroup != "undefined")) {
+            // potentially the same filter may be on the same page
+            // here we make sure to reset them all
+            for (i=0; i<filterGroup.length; i++) {
+                var fi = filterGroup[i];
+                // remove all active / highlighted filters
+                fi.$element.find("li.active").removeClass("active");
+
+                jQ.each(multiFilter.filterData, function(key,value) {
+                    jQ.each(value, function (cKey, cValue) {
+                        fi.$element.find("#" + cKey).addClass("active");
+                    })
+                });
+                fi.$textsearch.val('');
+            }
+        }
+
+        var listGroup = m_listGroups[id];
+        for (i=0; i<listGroup.length; i++) {
+            updateInnerList(listGroup[i].id, searchStateParameters, true, true, filterId);
+        }
+    }
 
     function listFilter(id, triggerId, filterId, searchStateParameters) {
 
@@ -84,24 +139,24 @@ var ApolloList = function(jQ) {
 
         var listGroup = m_listGroups[id];
         for (i=0; i<listGroup.length; i++) {
-            updateInnerList(listGroup[i].id, searchStateParameters, true);
+            updateInnerList(listGroup[i].id, searchStateParameters, true, false, null);
         }
     }
 
 
     function updateList(id, searchStateParameters, reloadEntries) {
 
-        updateInnerList(id, searchStateParameters, reloadEntries == "true");
+        updateInnerList(id, searchStateParameters, reloadEntries == "true", false, null);
     }
 
 
-    function updateInnerList(id, searchStateParameters, reloadEntries) {
+    function updateInnerList(id, searchStateParameters, reloadEntries, useMultiFilter, multiFilterId) {
         searchStateParameters = searchStateParameters || "";
         reloadEntries = reloadEntries || false;
 
         var list = m_lists[id];
 
-        if (DEBUG) console.info("updateInnerList() called instanceId=" + list.id + " elementId=" + list.elementId + " parameters=" + searchStateParameters);
+        if (DEBUG) console.info("updateInnerList() called instanceId=" + list.id + " multiFilterId=" + multiFilterId + " elementId=" + list.elementId + " parameters=" + searchStateParameters);
 
         if (!list.locked) {
             list.locked = true;
@@ -129,7 +184,35 @@ var ApolloList = function(jQ) {
             list.$spinner.hide().removeClass("fadeOut").addClass("fadeIn").css("top", spinnerPos).show();
 
             var facetOptions = jQ('#facets_' + list.elementId);
-            jQ.get(buildAjaxLink(list, ajaxOptions, searchStateParameters), function(resultList) {
+            var ajaxLink = buildAjaxLink(list, ajaxOptions, searchStateParameters);
+            if (DEBUG) console.info('buildAjaxLink:'+ajaxLink);
+
+            var ajaxConfig = {
+                method: "GET",
+                url: ajaxLink
+            };
+
+            if(useMultiFilter) {
+                ajaxConfig.method = "POST";
+
+                var multiFilterData = {};
+
+                jQ.each( m_multiFilters[multiFilterId].filterData, function(key,value) {
+                    multiFilterData[key] = [];
+                    jQ.each(value, function(vKey,vValue) {
+                        multiFilterData[key].push(vValue);
+                    });
+                    multiFilterData[key] = JSON.stringify(multiFilterData[key]);
+                });
+
+                ajaxConfig.data = multiFilterData;
+            }
+
+            if (DEBUG) console.info("Ajax Search with method: "+ ajaxConfig.method,ajaxConfig);
+
+            var ajaxRequest= jQ.ajax(ajaxConfig);
+
+            ajaxRequest.done(function(resultList) {
 
                 var $result = jQ(resultList);
                 // collect information about the search result
@@ -223,6 +306,8 @@ var ApolloList = function(jQ) {
             params = params + "&facets=" + facets.data("facets");
         }
         params = params + "&option=" + list.option;
+
+        if (DEBUG) console.info("buildAjaxLink:"+list.ajax + params + ajaxOptions + searchStateParameters);
         return list.ajax + params + ajaxOptions + searchStateParameters;
     }
 
@@ -240,7 +325,7 @@ var ApolloList = function(jQ) {
                     // NOTE: jQuery.visible() is defined in script-jquery-extensions.js
                     && appendPosition.visible()) {
 
-                    updateInnerList(list.id, list.$element.find('.loadMore').attr('data-load'), false);
+                    updateInnerList(list.id, list.$element.find('.loadMore').attr('data-load'), false, false, null);
                 }
             }
         }
@@ -298,7 +383,7 @@ var ApolloList = function(jQ) {
                 }
 
                 // load the initial list
-                updateInnerList(list.id, "", true);
+                updateInnerList(list.id, "", true, false, null);
             });
 
             if (m_autoLoadLists.length > 0) {
@@ -325,6 +410,10 @@ var ApolloList = function(jQ) {
 
                 // store filter data in global array
                 m_archiveFilters[filter.id] = filter;
+                m_multiFilters[filter.id] = {
+                    filterObject : filter,
+                    filterData : {}
+                };
 
                 // store filter in global group array
                 var group = m_archiveFilterGroups[filter.elementId];
@@ -336,6 +425,7 @@ var ApolloList = function(jQ) {
                 if (DEBUG) console.info("Archive filter data found: id=" + filter.id + ", elementId=" + filter.elementId);
             });
         }
+
     }
 
     // public available functions
@@ -344,7 +434,8 @@ var ApolloList = function(jQ) {
         update: updateList,
         facetFilter: facetFilter,
         archiveFilter: archiveFilter,
-        archiveSearch: archiveSearch
+        archiveSearch: archiveSearch,
+        multiFilter: multiFilter
     }
 
 }(jQuery);
