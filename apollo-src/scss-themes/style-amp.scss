@@ -18,7 +18,7 @@
  */
 
 /**********
- * Theme file: sytle-truka-suber-at.scss
+ * Theme file: style-amp.scss
  * 
  * Apollo Template CSS - RED theme.
  */
@@ -31,6 +31,12 @@ $blau-4: rgb(131,186,238);
 $blau-5: rgb(173,209,244);
 $blau-6: rgb(213,232,249);
 
+$dunkelblau: rgb(51,92,132);
+$pink: rgb(220,48,126);
+$tuerkis: rgb(77,200,203);
+$violett: rgb(164,90,139);
+$gruen: rgb(0,176,80);
+
 // Main theme colors
 $main-theme: #335C84; // blau-1
 $main-theme-hover: #437AAE; // blau-2
@@ -38,6 +44,27 @@ $main-theme-complementary: #144382; // dark blue
 
 // Import the other files
 @import 'imports';
+
+// large array of colors to be used in backgrounds
+$amp-colors:
+(
+  // color-name      // bg-color
+  (amp-hellblau,     rgb(90,163,232)),
+  (amp-dunkelblau,   rgb(51,92,132)),
+  (amp-pink,         rgb(220,48,126)),
+  (amp-tuerkis,      rgb(77,200,203)),
+  (amp-violoett,     rgb(164,90,139)),
+  (amp-gruen,        rgb(0,176,80)),
+) !default;
+
+/**
+ * AMP Background colors:
+ */
+@each $color-name, $bg-color in $amp-colors {
+  .bg-#{""+$color-name} {
+    background-color: #{""+$bg-color} !important;
+  }
+}
 
 .area-head {
   margin-bottom: 0;
