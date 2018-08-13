@@ -73,3 +73,9 @@ $amp-colors:
 .btn.text-white {
   color: #fff !important;
 }
+
+@media (min-width: 768px) {
+  .lead {
+    font-size: 17px;
+  }
+}
