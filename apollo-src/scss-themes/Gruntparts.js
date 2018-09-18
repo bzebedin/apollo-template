@@ -7,6 +7,7 @@ exports.themes = [
     'style-blue',
     'style-red',
     'style-truka-subera-at',
+    'style-blickfang',
     'style-amp',
     'style-ampevents'
 ];

@@ -109,6 +109,7 @@ var ApolloList = function(jQ) {
 
         var listGroup = m_listGroups[id];
         for (i=0; i<listGroup.length; i++) {
+            if (DEBUG) console.info("listMultiFilter() -> listGroup -> in der schleife aufrufen");
             updateInnerList(listGroup[i].id, searchStateParameters, true, true, filterId);
         }
     }
@@ -139,14 +140,20 @@ var ApolloList = function(jQ) {
 
         var listGroup = m_listGroups[id];
         for (i=0; i<listGroup.length; i++) {
+            if (DEBUG) console.info("listFilter() -> listGroup -> in der schleife aufrufen");
             updateInnerList(listGroup[i].id, searchStateParameters, true, false, null);
         }
     }
 
 
     function updateList(id, searchStateParameters, reloadEntries) {
-
+        if (DEBUG) console.info("updateList() -> updateInnerList aufrufen");
         updateInnerList(id, searchStateParameters, reloadEntries == "true", false, null);
+    }
+
+    function updateMultiList(id, searchStateParameters, reloadEntries, multiFilterId) {
+        if (DEBUG) console.info("updateMultiList() -> updateInnerList aufrufen");
+        updateInnerList(id, searchStateParameters, reloadEntries == "true", true, multiFilterId);
     }
 
 
@@ -313,6 +320,7 @@ var ApolloList = function(jQ) {
 
 
     function handleAutoLoaders() {
+        if (DEBUG) console.info("ApolloList.handleAutoLoaders()");
         if (m_autoLoadLists != null) {
             for (i=0; i<m_autoLoadLists.length; i++) {
 
@@ -325,6 +333,7 @@ var ApolloList = function(jQ) {
                     // NOTE: jQuery.visible() is defined in script-jquery-extensions.js
                     && appendPosition.visible()) {
 
+                    if (DEBUG) console.info("ApolloList.handleAutoLoaders()->updateInnerList()");
                     updateInnerList(list.id, list.$element.find('.loadMore').attr('data-load'), false, false, null);
                 }
             }
@@ -383,6 +392,7 @@ var ApolloList = function(jQ) {
                 }
 
                 // load the initial list
+                if (DEBUG) console.info("ApolloList.init() --> load the initial list");
                 updateInnerList(list.id, "", true, false, null);
             });
 
@@ -432,6 +442,7 @@ var ApolloList = function(jQ) {
     return {
         init: init,
         update: updateList,
+        updateMultiList: updateMultiList,
         facetFilter: facetFilter,
         archiveFilter: archiveFilter,
         archiveSearch: archiveSearch,
