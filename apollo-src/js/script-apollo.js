@@ -187,6 +187,7 @@ var Apollo = function(jQ) {
         ApolloImageGallery.init();
         ApolloList.init();
         ApolloCssSampler.init();
+        ApolloStickyMenu.init();
 
         initFunctions();
     }
