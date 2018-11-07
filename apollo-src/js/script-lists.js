@@ -368,7 +368,6 @@ var ApolloList = function(jQ) {
                     list.locked = false;
                     list.autoload = false;
                     list.notclicked = true;
-                    console.log(list.appendSwitch,Apollo.gridInfo().grid);
                     if (list.appendSwitch.indexOf(Apollo.gridInfo().grid) != -1) {
                         // I think this is a cool way for checking the screen size ;)
                         list.option = "append";
