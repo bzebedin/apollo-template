@@ -24,6 +24,13 @@ if (typeof DEBUG === 'undefined') {
     DEBUG = true;
 }
 
+if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function(searchString, position){
+        position = position || 0;
+        return this.substr(position, searchString.length) === searchString;
+    };
+}
+
 // Module implemented using the "revealing module pattern", see
 // https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript
 // https://www.christianheilmann.com/2007/08/22/again-with-the-module-pattern-reveal-something-to-the-world/
